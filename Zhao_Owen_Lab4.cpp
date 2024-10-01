@@ -10,58 +10,76 @@ using namespace std;
 
 int main() {
 
-    int Grape = 15;
-    int Strawberry = 7;
-    int Blueberry = 14;
-    int Grapefruit = 18;
-    int Rasberry = 5;
-    int Sugar;
-    int Guess;
-    int Guess2;
+    //Making variables for the number of fruit, the fruit, and the amount of sugar the fruit had
+    int FruitNumber;
     string Fruit;
+    int Sugar;
+    
+    //Asking user to input how many fruit they have
+    cout << "How many fruits do you have? ";
+    cin >> FruitNumber;
+    cout << endl;
+    
+    //Some Lore
+    cout << "You decide to put your fruits into the fridge... " << endl << endl;
 
-    cout << "In this game you will guess how much sugar is in a fruit!";
-    cout << endl<< endl;
-    cout << "Pick a fruit: Grape, Strawberry, Blueberry, Grapefruit, Rasberry ";
-    cin >> Fruit;
-
-    if (Fruit == "Grape")
-        Sugar = Grape;
-
-    if (Fruit == "Strawberry")
-        Sugar = Strawberry;
-
-    if (Fruit == "Blueberry")
-        Sugar = Blueberry;
-
-    if (Fruit == "Grapefruit")
-        Sugar = Grapefruit;
-
-    if (Fruit == "Rasberry")
-        Sugar = Rasberry; 
-
-    cout << "How much sugar do you think is in this fruit? ";
-    cin >> Guess;
-
-    while (Guess != Sugar)
+    //Will keep looping until there is not more fruit
+    while (FruitNumber != 0)
     {
-        cout << "Thats wrong! Try again! " << endl;
-        cout << "New guess: ";
-        cin >> Guess2;
+        //Asking user to input what fruit they are putting into the fridge
+        cout << "What fruit are you putting into the fridge? ";
+        cin >> Fruit;
+        cout << endl;
 
-            if (Guess2 == Sugar)
-            cout << "That's correct! You win nothing! ";
-            break;
+        //Asking user to input how much sugar is in the fruit
+        cout << "How many grams of sugar are in a cup of the fruit you chose? ";
+        cin >> Sugar;
+        cout << endl;
 
-            if (Guess2 != Sugar)
-            continue;
-    }
+        //Each if statement is used to decide if the fruit is LOW, MEDIUM, or HIGH in sugar
+        if (Sugar <= 10)
+        {
+            cout << "LOW SUGAR FRUIT" << endl << endl;
+        }
 
-    while (Guess == Sugar)
-    {
-        cout << "That's correct! You win nothing!";
-        break;
+        if (10 < Sugar <= 14)
+        {
+            cout << "MEDIUM SUGAR FRUIT" << endl << endl;
+        }
+
+        if (Sugar > 14)
+        {
+            cout << "HIGH SUGAR FRUIT" << endl << endl;
+        }
+
+        //Tells user how many fruits they have left
+        cout << "You have " << FruitNumber - 1 << " fruits left..." << endl << endl;
+
+        //Made so that each time you go through the full proccess there is one less fruit
+        FruitNumber = FruitNumber - 1;
     }
 
 return 0;
 }
+
+/*
+How many fruits do you have? 2
+
+You decide to put your fruits into the fridge...
+
+What fruit are you putting into the fridge? Grape
+
+How many grams of sugar are in a cup of the fruit you chose? 12
+
+MEDIUM SUGAR FRUIT
+
+You have 1 fruits left...
+
+What fruit are you putting into the fridge? Apple
+
+How many grams of sugar are in a cup of the fruit you chose? 12
+
+MEDIUM SUGAR FRUIT
+
+You have 0 fruits left...
+*/
